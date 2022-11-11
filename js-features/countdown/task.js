@@ -15,5 +15,3 @@ if (reverseTimer.textContent === "0") {
 }
 
     setInterval(getReverseTimer, 1000);
-
-
