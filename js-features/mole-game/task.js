@@ -21,23 +21,23 @@ for (index = 1; index < 10; index++) {
         }
 
 
-if (countDead === 10) {
-    alert ("ПОБЕДА!");
-    
-    countDead = 0;
-    countLost= 0;
+        if (countDead === 10) {
+            alert ("ПОБЕДА!");
+            
+            countDead = 0;
+            countLost= 0;
 
-    dead.textContent = countDead;
-    lost.textContent = countLost;
-} else if (countLost === 5) {
-    alert ("Вы проиграли!");
+            dead.textContent = countDead;
+            lost.textContent = countLost;
+        } else if (countLost === 5) {
+            alert ("Вы проиграли!");
 
-    
-    countDead = 0;
-    countLost = 0;
+            
+            countDead = 0;
+            countLost = 0;
 
-    dead.textContent = countDead;
-    lost.textContent = countLost;
+            dead.textContent = countDead;
+            lost.textContent = countLost;
         }
     }
 }
