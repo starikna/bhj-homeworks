@@ -5,7 +5,6 @@ const lost = document.getElementById("lost"); // получаем доступ �
 let countDead = 0;
 let countLost = 0;
 
-
 getHole = index => document.getElementById(`hole${index}`); // функция доступа  к индексу каждой лунки
 
 for (index = 1; index < 10; index++) {
@@ -20,7 +19,6 @@ for (index = 1; index < 10; index++) {
             lost.textContent = countLost;
         }
 
-
         if (countDead === 10) {
             alert ("ПОБЕДА!");
             
@@ -32,7 +30,6 @@ for (index = 1; index < 10; index++) {
         } else if (countLost === 5) {
             alert ("Вы проиграли!");
 
-            
             countDead = 0;
             countLost = 0;
 
