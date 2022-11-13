@@ -1,5 +1,3 @@
-// 'use strict'
-
 const dead = document.getElementById("dead"); // получаем доступ к счетчику убитых кротов
 const lost = document.getElementById("lost"); // получаем доступ к счетчику промахов
 let countDead = 0;
