@@ -1,9 +1,9 @@
-const dead = document.getElementById("dead"); // получаем доступ к счетчику убитых кротов
-const lost = document.getElementById("lost"); // получаем доступ к счетчику промахов
+const dead = document.getElementById("dead");
+const lost = document.getElementById("lost"); 
 let countDead = 0;
 let countLost = 0;
 
-getHole = index => document.getElementById(`hole${index}`); // функция доступа  к индексу каждой лунки
+getHole = index => document.getElementById(`hole${index}`);
 
 for (index = 1; index < 10; index++) {
    let hole = getHole(index);
