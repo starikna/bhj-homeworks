@@ -15,81 +15,50 @@ arrowToLeft.onclick = function () {
 }
 
 const slideManagementRight = () => {
-    // const firstSliderItem = document.querySelector(".slider__item");
-
     for (let i = 0; i < sliderItems.length - 1; i++) {
- 
         const slideActive = sliderItems[i];     
         const nextSlideItem = slideActive.nextElementSibling;
     
         if (sliderItems[i].className.includes("slider__item_active")) {
-    
         countSlide = [i++];
         slideActive.classList.toggle("slider__item_active");
         nextSlideItem.classList.toggle("slider__item_active");
-
         countSlide =  [i++];
+
         return countSlide;
         }
-} 
-        firstSliderItem.classList.toggle("slider__item_active");
-        countSlide = sliderItems.length;
-        lastSliderItem[0].classList.toggle("slider__item_active");
-        countSlide = 0;
-        return(countSlide);
+    } 
+
+    firstSliderItem.classList.toggle("slider__item_active");
+    countSlide = sliderItems.length;
+    lastSliderItem[0].classList.toggle("slider__item_active");
+    countSlide = 0;
+
+    return(countSlide);
 }
 
 const slideManagementLeft = () => {
     for (let i = sliderItems.length - 1; i > 0; i--) {
-
-        if (sliderItems[i].className.includes("slider__item_active")) {
-            countSlide = [i];
         const slideActive = sliderItems[i];
         const prevSlideItem = slideActive.previousElementSibling;
-    
+
+        if (sliderItems[i].className.includes("slider__item_active")) {
+        countSlide = [i];
         prevSlideItem.classList.toggle("slider__item_active");
         slideActive.classList.toggle("slider__item_active");
         countSlide = [i];
-        // alert(countSlide);
+        
         return countSlide;
         }  
     }
+
     lastSliderItem[0].classList.toggle("slider__item_active");
     countSlide = 0;
     firstSliderItem.classList.toggle("slider__item_active");
     countSlide = sliderItems.length;
+
     return countSlide;
-
-
-
 }
-
-// const slideActive = sliderItems[i];     
-// const nextSlideItem = slideActive.nextElementSibling;
-
-// if (sliderItems[i].className.includes("slider__item_active")) {
-
-// countSlide = [i++];
-// slideActive.classList.toggle("slider__item_active");
-// nextSlideItem.classList.toggle("slider__item_active");
-
-// countSlide =  [i++];
-// return countSlide;
-// }
-// } 
-// firstSliderItem.classList.toggle("slider__item_active");
-// countSlide = sliderItems.length;
-// lastSliderItem[0].classList.toggle("slider__item_active");
-// countSlide = 0;
-// return(countSlide);
-
-   
-  
-    
-
-// console.log(arrowToLeft);
-// console.log(arrowToRight);
-// console.log(slider);
 
 // Установите обработчики события click на элементах «Влево» и «Вправо»
 // При смене слайдов учитывайте, что навигация должна быть бесконечной. 
