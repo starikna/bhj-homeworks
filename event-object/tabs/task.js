@@ -1,18 +1,21 @@
 const tabNavigation = Array.from(document.querySelectorAll(".tab"));
-const tabContents = Array.from(document.querySelectorAll(".tab__content"));
-let tabActive = document.querySelector(".tab_active");
+tabNavigation.forEach((el) => {
+    el.addEventListener("click", (event) => {
+        const currentTabs = event.target.closest(".tab__navigation");
+        const currentTab = Array.from(currentTabs.querySelectorAll(".tab"));
+        const currentContent = event.target.closest(".tabs").querySelector(".tab__contents");
+        const tabContents = Array.from(currentContent.querySelectorAll(".tab__content"));
 
-for (let el of tabNavigation) {
-    el.addEventListener("click", (e) => {   
+        let tabActive = currentTabs.querySelector(".tab_active");
+        let i = currentTab.indexOf(tabActive);
+
+        tabContents[i].classList.remove("tab__content_active");
+        tabActive.classList.remove("tab_active");
         
-        if (e.currentTarget !== tabActive) {
-            let i = tabNavigation.findIndex((item) => item === tabActive);
-            tabContents[i].classList.remove("tab__content_active");
-            e.currentTarget.classList.add("tab_active");               
-            tabActive.classList.remove("tab_active");
-            tabActive = document.querySelector(".tab_active");
-            i = tabNavigation.findIndex((item) => item === tabActive);
-            tabContents[i].classList.add("tab__content_active");
-        }
+        event.target.classList.add("tab_active");
+        tabActive = currentTabs.querySelector(".tab_active");
+        
+        i = currentTab.indexOf(tabActive);
+        tabContents[i].classList.add("tab__content_active");
     });
-}
+});

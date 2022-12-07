@@ -1,17 +1,17 @@
-const dropdowns = document.querySelectorAll(".dropdown");
+const dropdowns = document.querySelectorAll(".dropdown__value");
 dropdowns.forEach((el) => {
     el.addEventListener("click", (e) => {
-        const eTargetDropdown = e.target.closest(".dropdown")
+        const eTargetDropdown = e.target.closest(".dropdown");
         const currentList = eTargetDropdown.querySelector(".dropdown__list");
         currentList.classList.toggle("dropdown__list_active");
-
 
         eTargetDropdown.querySelectorAll("a.dropdown__link").forEach((link) => {
             link.addEventListener("click", (event) => {
                 event.preventDefault();
                 const value = eTargetDropdown.querySelector(".dropdown__value");
                 value.textContent = event.target.textContent;
-            })
-        })
-    })
-})
+                currentList.classList.remove("dropdown__list_active");
+            });
+        });
+    });
+});
