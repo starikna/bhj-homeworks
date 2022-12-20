@@ -2,8 +2,7 @@ const books = document.querySelectorAll(".book");
 books.forEach((book) => {
   book.addEventListener("click", (e) => {
     const currentLink = e.target;
-    if (!currentLink.classList.contains("font-size")) return;
-    if (currentLink.classList.contains("font-size_active")) return;
+    if (!currentLink.classList.contains("font-size") || currentLink.classList.contains("font-size_active")) return;
     e.preventDefault();
     
     const currentLinkSize = currentLink.getAttribute("data-size");
