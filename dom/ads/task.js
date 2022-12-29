@@ -1,4 +1,3 @@
-
 function changeRotator () {
     const rotatorArr = Array.from(document.querySelectorAll(".rotator__case"));
 
