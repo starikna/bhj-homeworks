@@ -2,7 +2,6 @@ const quantityControl = document.querySelectorAll(".product__quantity-control");
 const currentProducts = document.querySelectorAll(".product__add")
 const carts = document.querySelector(".cart__products");
 
-
 quantityControl.forEach((el) => {
     el.addEventListener("click", (e) => {
         const targetCount = e.target.closest(".product__quantity-controls"); 
@@ -20,37 +19,19 @@ quantityControl.forEach((el) => {
 currentProducts.forEach((el) => {
     el.addEventListener("click", (e) => {
         const targetProduct = e.target.closest(".product");
-        let addedProduct = targetProduct.cloneNode(false);
-        addedProduct.className = "cart__product";
+        const targetId = targetProduct.getAttribute("data-id");
+        const targetImage = targetProduct.querySelector(".product__image").getAttribute("src");
+        let targetCount = +targetProduct.querySelector(".product__quantity-value").textContent;
+        const addedProduct = document.createElement("div");
+        const innerText = `<div class="cart__product" data-id="${targetId}"><img class="cart__product-image" src="${targetImage}"><div class="cart__product-count">${targetCount}</div></div>`;
 
-        const imgTargetProduct = targetProduct.querySelector(".product__image");
-        let addedProductImage = imgTargetProduct.cloneNode(false);
-        addedProductImage.className = "cart__product-image";
-
-        const targetProductCount = targetProduct.querySelector(".product__quantity-value");
-        let addedProductCount = targetProductCount.cloneNode(false);
-        addedProductCount.className = "cart__product-count";
-
-        const cart = document.querySelectorAll(".cart__product");
-        const idProducts = [];
-        
-        cart.forEach((elem) => {
-            let idProduct = elem.getAttribute("data-id");
-            idProducts.push(idProduct);
-        });
-        
-
-        if (!idProducts.includes(targetProduct.getAttribute("data-id"))) {
+        if (!Array.from(carts.children).find(item => item.getAttribute("data-id") === targetId)) {
             carts.appendChild(addedProduct);
-            addedProduct.appendChild(addedProductImage);
-            addedProduct.appendChild(addedProductCount);
-            addedProductCount.textContent = targetProductCount.textContent;
+            addedProduct.outerHTML = innerText;
         } else {
-            cart.forEach((item) => {
-                if (item.getAttribute("data-id") === targetProduct.getAttribute("data-id")) {
-                    item.lastChild.textContent =  Number(item.lastChild.textContent) + Number(targetProductCount.textContent);
-                }
-            });
+            let count = Array.from(carts.children).find(item => item.getAttribute("data-id") === targetId);
+            let countInCart = targetCount + +count.querySelector(".cart__product-count").textContent;
+            count.querySelector(".cart__product-count").textContent = countInCart;
         }
     });
 });

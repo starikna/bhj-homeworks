@@ -12,7 +12,7 @@ hasTooltipLinks.forEach((item) => {
 function activatorToolTips() {
   let tooltipActive = document.querySelectorAll(".tooltip_active");
   tooltipActive.forEach((el) => {
-    el.classList.toggle("tooltip_active");
+    el.classList.add("tooltip_active");
   });
 }
 
