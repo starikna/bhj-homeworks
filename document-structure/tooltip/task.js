@@ -6,7 +6,6 @@ hasTooltipLinks.forEach((item) => {
   item.insertAdjacentElement("afterEnd", toolTips);
   toolTips.className = "tooltip";
   toolTips.textContent = item.title;
-  console.log(toolTips);
 });
 
 function activatorToolTips() {
