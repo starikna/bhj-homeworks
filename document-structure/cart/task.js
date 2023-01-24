@@ -24,12 +24,12 @@ currentProducts.forEach((el) => {
         let targetCount = +targetProduct.querySelector(".product__quantity-value").textContent;
         const addedProduct = document.createElement("div");
         const innerText = `<div class="cart__product" data-id="${targetId}"><img class="cart__product-image" src="${targetImage}"><div class="cart__product-count">${targetCount}</div></div>`;
-
-        if (!Array.from(carts.children).find(item => item.getAttribute("data-id") === targetId)) {
+        const count = Array.from(carts.children).find(item => item.getAttribute("data-id") === targetId);
+       
+            if (!count) {
             carts.appendChild(addedProduct);
             addedProduct.outerHTML = innerText;
         } else {
-            let count = Array.from(carts.children).find(item => item.getAttribute("data-id") === targetId);
             let countInCart = targetCount + +count.querySelector(".cart__product-count").textContent;
             count.querySelector(".cart__product-count").textContent = countInCart;
         }

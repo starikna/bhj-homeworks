@@ -4,10 +4,9 @@ const taskAdd = document.querySelector(".tasks__add");
 
 taskAdd.addEventListener("click", (e) => {
   if (input.value.trim() !== "") {
-      e.preventDefault();
       addTask();
-      input.value = "";
   }
+  e.preventDefault();
   input.value = "";
 });
 
